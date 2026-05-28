@@ -47,12 +47,12 @@ class SongListFragment : Fragment() {
     }
 
     private fun setupSongList() {
-        songAdapter = SongAdapter(movie.songs, MusicService.currentSongTitle) { song ->
-            if (MusicService.isPlaying && MusicService.currentSongTitle == song.title) {
-                MusicService.stop(requireContext())
+        songAdapter = SongAdapter(movie.songs, Player.currentSongTitle) { song ->
+            if (Player.isPlaying && Player.currentSongTitle == song.title) {
+                Player.stop()
                 songAdapter.updateCurrentSong("")
             } else {
-                MusicService.play(requireContext(), song, movie)
+                Player.play(requireContext(), song)
                 songAdapter.updateCurrentSong(song.title)
             }
         }
@@ -66,7 +66,7 @@ class SongListFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         if (::songAdapter.isInitialized) {
-            songAdapter.updateCurrentSong(MusicService.currentSongTitle)
+            songAdapter.updateCurrentSong(Player.currentSongTitle)
         }
     }
 

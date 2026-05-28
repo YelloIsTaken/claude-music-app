@@ -14,7 +14,7 @@ data class Song(
     val id: Int,
     val title: String,
     val duration: String,
-    val frequency: Double
+    val rawResName: String   // filename (no extension) in res/raw/
 )
 
 object MusicData {
@@ -27,12 +27,12 @@ object MusicData {
             accentColor = 0xFFE9C46A.toInt(),
             description = "Academy Award — Best Original Score",
             songs = listOf(
-                Song(1,  "Warrior Falls",             "4:42", 220.00),
-                Song(2,  "Ancestral Plane",           "3:15", 246.94),
-                Song(3,  "A Clue",                    "2:58", 261.63),
-                Song(4,  "First Official Challenge",  "5:23", 293.66),
-                Song(5,  "Let the Ancestors Speak",   "6:01", 329.63),
-                Song(6,  "Is This Wakanda?",          "3:17", 349.23)
+                Song(1,  "Warrior Falls",            "4:42", "bp_warrior_falls"),
+                Song(2,  "Ancestral Plane",          "3:15", "bp_ancestral_plane"),
+                Song(3,  "A Clue",                   "2:58", "bp_a_clue"),
+                Song(4,  "First Official Challenge", "5:23", "bp_first_challenge"),
+                Song(5,  "Let the Ancestors Speak",  "6:01", "bp_let_ancestors_speak"),
+                Song(6,  "Is This Wakanda?",         "3:17", "bp_is_this_wakanda")
             )
         ),
         Movie(
@@ -43,12 +43,12 @@ object MusicData {
             accentColor = 0xFF7EB8F7.toInt(),
             description = "Grammy Award — Best Score Soundtrack",
             songs = listOf(
-                Song(7,  "The Algorithm",             "5:14", 392.00),
-                Song(8,  "Posterity",                 "4:33", 440.00),
-                Song(9,  "Backwards POV",             "3:47", 493.88),
-                Song(10, "Pull",                      "6:02", 523.25),
-                Song(11, "The Protagonist",           "4:51", 587.33),
-                Song(12, "Rainy Night in Tallinn",    "3:29", 659.25)
+                Song(7,  "The Algorithm",            "5:14", "tenet_algorithm"),
+                Song(8,  "Posterity",                "4:33", "tenet_posterity"),
+                Song(9,  "Backwards POV",            "3:47", "tenet_backwards_pov"),
+                Song(10, "Pull",                     "6:02", "tenet_pull"),
+                Song(11, "The Protagonist",          "4:51", "tenet_protagonist"),
+                Song(12, "Rainy Night in Tallinn",   "3:29", "tenet_rainy_night")
             )
         ),
         Movie(
@@ -59,12 +59,12 @@ object MusicData {
             accentColor = 0xFFFBBF24.toInt(),
             description = "Academy Award — Best Original Score",
             songs = listOf(
-                Song(13, "Can You Hear the Music",    "5:18", 174.61),
-                Song(14, "Fission",                   "4:07", 196.00),
-                Song(15, "Destroyer of Worlds",       "6:44", 207.65),
-                Song(16, "Trinity",                   "3:52", 233.08),
-                Song(17, "American Prometheus",       "5:09", 246.94),
-                Song(18, "Quantum Mechanics",         "4:23", 261.63)
+                Song(13, "Can You Hear the Music",   "5:18", "opp_can_you_hear"),
+                Song(14, "Fission",                  "4:07", "opp_fission"),
+                Song(15, "Destroyer of Worlds",      "6:44", "opp_destroyer"),
+                Song(16, "Trinity",                  "3:52", "opp_trinity"),
+                Song(17, "American Prometheus",      "5:09", "opp_prometheus"),
+                Song(18, "Quantum Mechanics",        "4:23", "opp_quantum")
             )
         )
     )

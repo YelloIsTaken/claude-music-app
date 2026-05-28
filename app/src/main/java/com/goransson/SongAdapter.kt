@@ -38,7 +38,7 @@ class SongAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val song = songs[position]
-        holder.bind(song, MusicService.isPlaying && song.title == currentSongTitle)
+        holder.bind(song, Player.isPlaying && song.title == currentSongTitle)
     }
 
     override fun getItemCount() = songs.size
