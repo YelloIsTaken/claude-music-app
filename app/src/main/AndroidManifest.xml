@@ -24,12 +24,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".SongListActivity"
-            android:exported="false"
-            android:screenOrientation="landscape"
-            android:configChanges="orientation|screenSize" />
-
         <service
             android:name=".MusicService"
             android:exported="false"

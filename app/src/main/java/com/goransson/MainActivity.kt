@@ -1,36 +1,31 @@
 package com.goransson
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.goransson.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
-    private lateinit var movieAdapter: MovieAdapter
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_main)
 
-        movieAdapter = MovieAdapter(MusicData.movies) { movie ->
-            startActivity(
-                Intent(this, SongListActivity::class.java)
-                    .putExtra(SongListActivity.EXTRA_MOVIE_ID, movie.id)
-            )
-        }
-
-        binding.recyclerMovies.apply {
-            layoutManager = LinearLayoutManager(this@MainActivity)
-            adapter        = movieAdapter
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, HomeFragment())
+                .commit()
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        movieAdapter.notifyDataSetChanged()
+    fun navigateToSongList(movieId: Int) {
+        supportFragmentManager.beginTransaction()
+            .setCustomAnimations(
+                R.anim.slide_in_right,
+                R.anim.slide_out_left,
+                R.anim.slide_in_left,
+                R.anim.slide_out_right
+            )
+            .replace(R.id.fragmentContainer, SongListFragment.newInstance(movieId))
+            .addToBackStack(null)
+            .commit()
     }
 }
